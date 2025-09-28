@@ -1,4 +1,4 @@
-1. command to execute text save program source code
+1. command to execute text save program source code   
    gcc -o save save.c
    ./save
    cat example.txt
