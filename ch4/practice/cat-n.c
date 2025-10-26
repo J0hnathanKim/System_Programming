@@ -1,4 +1,3 @@
-//still fixing
 #include <stdio.h>
 #include <string.h>
 #define MAXLINE 80
