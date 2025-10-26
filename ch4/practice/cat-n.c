@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
         }
         while (fgets(buffer, MAXLINE, fp) != NULL) {  // 한 줄 읽기
               line++;
-              printf("%3d %s", line, buffer);    // 줄번호와 함께 프린트
+              printf("%d %s", line, buffer);    // 줄번호와 함께 프린트
         }
         fclose(fp);
         return 0;
