@@ -1,13 +1,15 @@
 //still fixing
 #include <stdio.h>
 #include <string.h>
+#define MAXLINE 80
 
 /* 텍스트 파일 내용을 표준출력에 프린트 */
 int main(int argc, char *argv[])
 {
     FILE *fp;
     int c;
-    int i = 1;
+    int line = 0;
+    char buffer[MAXLINE];
 
     if (argc < 2) {
         fp = stdin;  // 인자가 없으면 표준입력 사용
@@ -23,14 +25,9 @@ int main(int argc, char *argv[])
             perror(argv[2]);
             return 1;
         }
-
-        printf("%d ", i);  // 첫 번째 줄 번호 출력
-        while ((c = getc(fp)) != EOF) {
-            putc(c, stdout);   // 문자 출력
-            if (c == '\n') {   // 줄바꿈이면 다음 줄 번호 출력
-                i++;
-                printf("%d ", i);
-            }
+        while (fgets(buffer, MAXLINE, fp) != NULL) {  // 한 줄 읽기
+              line++;
+              printf("%3d %s", line, buffer);    // 줄번호와 함께 프린트
         }
         fclose(fp);
         return 0;
