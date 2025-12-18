@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <string.h>
-#include <<unistd.h>
+#include <unistd.h>
 
 
 #define PIPE_12 "pipe_12"
