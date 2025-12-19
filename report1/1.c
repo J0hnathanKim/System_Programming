@@ -3,30 +3,31 @@
 int main(int argc, char *argv[])
 {
     FILE *fp;
-    long size;
+    int c;
 
     
     if (argc < 2) {
-        printf("Usage: %s file1.txt\n", argv[0]);
+        printf("Usage: %s file1.txt [file2.txt ...]\n", argv[0]);
         return 1;
     }
 
     
     for (int i = 1; i < argc; i++) {
-        fp = fopen(argv[i], "rb");   
+        fp = fopen(argv[i], "r");  
         if (fp == NULL) {
-            fprintf(stderr, "Cannot open file: %s\n", argv[i]);
-            continue;
+            fprintf(stderr, "Can't open %s \n", argv[i]);
+            continue;  
         }
 
-        
-        fseek(fp, 0, SEEK_END);
-        size = ftell(fp);
+        printf("\n%d. Filename: %s\n", i, argv[i]);
 
         
-        printf("Size of file[%s] is %ldbytes.\n", argv[i], size);
+        while ((c = fgetc(fp)) != EOF)
+            putchar(c);
 
         fclose(fp);
+        printf("=================================\n");	
+        printf("\n");
     }
 
     return 0;
