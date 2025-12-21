@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
         int n = read(fd_r, buf, MAXLINE);
         if (n > 0){
             printf("[Received] %s", buf);
-            fflush(stdout); //필수 X
+            
         }
     }
 
